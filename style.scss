@@ -1,0 +1,287 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+:root {
+    --green: #1F3F31;
+    --cream: #EFE9DF;
+    --gold: #9A7940;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4 {
+    font-family: Cormorant Infant;
+    font-weight: Bold;
+}
+div, a, p {
+    font-family: Inter;
+    font-weight: normal;
+}
+
+a.underline {
+    position: relative;
+    font-weight: 600;
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 0%;
+        height: 2px;
+        background: var(--green);
+        transition: .5s cubic-bezier(0.08, 0.82, 0.17, 1);
+    }
+    &:hover {
+        &::after {
+            width: 100%;
+        }
+    }
+}
+
+body {
+    background: var(--cream);
+    text-align: center;
+}
+
+.circle {
+    position: absolute;
+    z-index: -1;
+}
+.top-circle {
+    top: -150px;
+    left: -150px;
+    animation: clockwiseRotaion 10s linear infinite;
+}
+.bottom-circle {
+    bottom: -150px;
+    right: -150px;
+    animation: counterClockwiseRotaion 10s linear infinite;
+}
+
+@keyframes counterClockwiseRotaion {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes clockwiseRotaion {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+.warning {
+    padding: 8px 18px 8px 14px;
+    background: var(--gold);
+    display: inline-block;
+    color: #EFE9DF;
+    border-radius: 50px;
+    margin-bottom: 40px;
+    img {
+        vertical-align: middle;
+        margin-right: 4px;
+    }
+}
+
+.title {
+    margin-bottom: 20px;
+}
+.hafid, .yusuf {
+    font-family: Cormorant Infant;
+    font-weight: bold;
+    font-size: 94pt;
+    color: var(--green);
+    img {
+        height: 110px;
+        vertical-align: middle;
+        margin-top: -40px;
+        margin-right: 20px;
+    }
+}
+.yusuf {
+    margin-top: -30px;
+}
+.recruiter {
+    margin-bottom: 60px;
+    position: relative;
+    a {
+        text-decoration: none;
+        margin: 0px 7px;
+    }
+    p {
+        color: var(--green);
+        margin-bottom: 14px;
+    }
+    .button {
+        display: inline-block;
+        width: 144px;
+        height: 20px;
+        padding: 14px 32px;
+        background: var(--green);
+        color: var(--cream);
+    }
+}
+
+.contact p {
+    display: inline-block;
+    margin-bottom: 10px;
+    a {
+        text-decoration: none;
+        color: var(--green);
+    }
+    img {
+        vertical-align: middle;
+        margin-right: 8px;
+    }
+}
+
+.bg {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    width: 200%;
+    height: 200vh;
+    background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
+    background-repeat: repeat;
+    opacity: .5;
+    visibility: visible;
+  }
+
+.hero {
+    padding: 0px 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+
+/* Button Hover Effect */
+.button--calypso {
+    position: relative;
+    overflow: hidden;
+}
+
+.button--calypso span {
+    display: block;
+    position: absolute;
+    z-index: 10;
+    text-align: center;
+    overflow: visible;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.button--calypso:hover span {
+    animation: MoveScaleUpInitial 0.3s forwards, MoveScaleUpEnd 0.3s forwards 0.3s;
+}
+
+@keyframes MoveScaleUpInitial {
+    to {
+        transform: translate3d(0, -105%, 0) scale3d(1, 2, 1);
+        opacity: 0;
+    }
+}
+
+@keyframes MoveScaleUpEnd {
+    from {
+        transform: translate3d(0, 100%, 0) scale3d(1, 2, 1);
+        opacity: 0;
+        color: var(--green);
+    }
+
+    to {
+        transform: translate3d(0, -50%, 0);
+        opacity: 1;
+        color: var(--green);
+    }
+}
+
+.button--calypso::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background: #fff;
+    width: 120%;
+    height: 0;
+    padding-bottom: 120%;
+    top: -130%;
+    left: -10%;
+    border-radius: 50%;
+    transform: translate3d(0, 68%, 0) scale3d(0, 0, 0);
+}
+
+.button--calypso:hover::before {
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+    transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
+}
+
+.button--calypso::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background: #fff;
+    transform: translate3d(0, -100%, 0);
+    transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
+}
+
+.button--calypso:hover::after {
+    transform: translate3d(0, 0, 0);
+    transition-duration: 0.05s;
+    transition-delay: 0.4s;
+    transition-timing-function: linear;
+}
+
+/* End of Button Hover Effect */
+
+@media screen and (max-width:500px) {
+    .hafid, .yusuf {
+        font-size: 54pt;
+        img {
+            height: 60px;
+            vertical-align: middle;
+            margin-top: -20px;
+            margin-right: 10px;
+        }
+    }
+    .yusuf {
+        margin-top: -20px;
+    }
+    .top-circle {
+        top: -250px;
+        left: -250px;
+    }
+    .bottom-circle {
+        bottom: -250px;
+        right: -350px;
+    }
+    .button {
+        display: block!important;
+        width: calc(100% - 64px)!important;
+    }
+}
