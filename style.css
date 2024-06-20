@@ -337,10 +337,8 @@ nav svg path, nav svg stroke {
   }
 }
 .hero {
-  padding: 0px 5%;
-  padding-bottom: 40px;
+  padding: 12% 5% 0px 5%;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   box-sizing: border-box;
@@ -348,22 +346,8 @@ nav svg path, nav svg stroke {
   z-index: -1;
   width: 100vw;
   height: 100vh;
+  height: 100svh;
   background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 40%);
-}
-
-.hero-impostor {
-  padding: 0px 5%;
-  align-items: center;
-  box-sizing: border-box;
-  position: fixed;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  padding-top: calc(23vh + 3px);
-}
-.hero-impostor .hafid, .hero-impostor .yusuf {
-  color: var(--cream) !important;
-  font-weight: bold !important;
 }
 
 .title {
@@ -400,6 +384,7 @@ nav svg path, nav svg stroke {
 
 .invisible-div {
   height: calc(100vh - 96px);
+  height: calc(100svh - 96px);
 }
 
 .works {
@@ -1317,6 +1302,9 @@ nav svg path, nav svg stroke {
   }
   .menu-toggle {
     display: block !important;
+  }
+  .hero {
+    padding: 45% 5% 0px 5%;
   }
   .hafid, .yusuf {
     font-size: 54pt;

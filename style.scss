@@ -326,10 +326,8 @@ nav {
 }
 
 .hero {
-    padding: 0px 5%;
-    padding-bottom: 40px;
+    padding: 12% 5% 0px 5%;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     box-sizing: border-box;
@@ -337,21 +335,8 @@ nav {
     z-index: -1;
     width: 100vw;
     height: 100vh;
+    height: 100svh;
     background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255,255,255,0) 40%);
-}
-.hero-impostor {
-    padding: 0px 5%;
-    align-items: center;
-    box-sizing: border-box;
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    padding-top: calc(23vh + 3px);
-    .hafid, .yusuf {
-        color: var(--cream)!important;
-        font-weight: bold!important;
-    }
 }
 
 .title {
@@ -386,6 +371,7 @@ nav {
 
 .invisible-div {
     height: calc(100vh - 96px);
+    height: calc(100svh - 96px);
 }
 .works {
     background: var(--green);
@@ -1323,6 +1309,9 @@ nav {
         display: block !important;
     }
 
+    .hero {
+        padding: 45% 5% 0px 5%;
+    }
     .hafid, .yusuf {
         font-size: 54pt;
         img {
