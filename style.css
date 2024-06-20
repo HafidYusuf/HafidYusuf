@@ -30,6 +30,26 @@ div, a, p {
   font-weight: normal;
 }
 
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
 a.underline {
   position: relative;
 }
@@ -286,6 +306,20 @@ nav svg path, nav svg stroke {
   animation: counterClockwiseRotaion 10s linear infinite;
 }
 
+.circle path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: dash 8s ease-out alternate forwards;
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
 @keyframes counterClockwiseRotaion {
   0% {
     transform: rotate(0deg);
@@ -315,6 +349,21 @@ nav svg path, nav svg stroke {
   width: 100vw;
   height: 100vh;
   background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 40%);
+}
+
+.hero-impostor {
+  padding: 0px 5%;
+  align-items: center;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  padding-top: calc(23vh + 3px);
+}
+.hero-impostor .hafid, .hero-impostor .yusuf {
+  color: var(--cream) !important;
+  font-weight: bold !important;
 }
 
 .title {
@@ -349,10 +398,14 @@ nav svg path, nav svg stroke {
   font-weight: bold;
 }
 
+.invisible-div {
+  height: calc(100vh - 96px);
+}
+
 .works {
   background: var(--green);
   color: var(--cream);
-  width: 100%;
+  width: 80%;
   margin: 0 auto;
   padding-bottom: 140px;
   position: relative;
@@ -424,10 +477,11 @@ nav svg path, nav svg stroke {
   height: 100%;
   position: relative;
   flex: 1 0 0;
+  overflow: hidden;
 }
 .work-img img {
   width: 100%;
-  height: 100%;
+  height: 120%;
   -o-object-fit: cover;
      object-fit: cover;
   position: relative;
@@ -461,16 +515,36 @@ nav svg path, nav svg stroke {
   right: 80px;
   background: #ffffff;
   border-radius: 50%;
-  transform: rotate(-15deg);
+  transform: rotate(-20deg);
   border: solid 2px rgba(154, 121, 64, 0);
-  transition: border 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+.circle-button svg {
+  width: 14px;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+.circle-button svg path, .circle-button svg rect {
+  fill: var(--green);
+  transition: all 0.3s ease-out;
 }
 .circle-button:hover {
-  border: solid 2px #9a7940;
-  transition: border 0.3s ease-out;
+  background: var(--gold);
+  color: var(--cream);
+  transition: all 0.3s ease-out;
+}
+.circle-button:hover:hover svg path, .circle-button:hover:hover svg rect {
+  fill: var(--cream);
 }
 
 .resources {
+  background: var(--cream);
+  width: 100%;
+  padding: 48px 0px;
+  box-sizing: border-box;
+}
+
+.resources-page {
   background: var(--cream);
   width: 100%;
   padding: 48px 0px;
@@ -668,7 +742,31 @@ nav svg path, nav svg stroke {
 .copyright a, .copyright .madeby {
   font-weight: 300;
 }
+.copyright .madeby div {
+  display: inline-block;
+  animation: heartbeat 1.8s infinite;
+}
 
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.25);
+  }
+  20% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.25);
+  }
+  40% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 .about-intro {
   padding: 120px 10vw;
   text-align: left;
@@ -709,7 +807,7 @@ nav svg path, nav svg stroke {
 
 .hafid-picture {
   width: 100%;
-  height: 100%;
+  height: 120%;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -745,7 +843,6 @@ nav svg path, nav svg stroke {
 
 .client-logo {
   background-color: var(--green);
-  width: 100%;
   display: inline-flex;
   align-items: flex-end;
   white-space: nowrap;
@@ -753,13 +850,14 @@ nav svg path, nav svg stroke {
   position: relative;
   gap: 32px;
   overflow: hidden;
+  padding: 0px 16px;
 }
 .client-logo img {
   height: 90px;
 }
 
 .values {
-  padding: 120px 10vw;
+  padding: 120px 10vw 240px 10vw;
   text-align: left;
   display: flex;
   gap: 32px;
@@ -791,6 +889,15 @@ nav svg path, nav svg stroke {
   position: relative;
   width: -moz-fit-content;
   width: fit-content;
+}
+.small-hafid-pic-container .small-hafid-cont {
+  width: 300px;
+  height: 400px;
+  overflow: hidden;
+  text-align: center;
+}
+.small-hafid-pic-container img {
+  height: 120%;
 }
 
 .detail {
@@ -1243,10 +1350,13 @@ nav svg path, nav svg stroke {
     height: auto;
   }
   .work-img {
+    height: 400px;
     width: 100%;
+    flex: none;
   }
   .work-caption {
     width: 100%;
+    display: block;
   }
   .work-title {
     font-size: 24px;
@@ -1340,4 +1450,53 @@ nav svg path, nav svg stroke {
     height: 400px;
     background: var(--green);
   }
+}
+.cover-transition {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 0%;
+  background-color: var(--green);
+  z-index: 999999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  -webkit-clip-path: inset(0 0 0 0);
+          clip-path: inset(0 0 0 0);
+}
+.cover-transition h2 {
+  color: var(--cream);
+  font-weight: normal;
+  font-variant-ligatures: none;
+}
+.cover-transition h2 .char {
+  opacity: 0;
+  font-family: Cormorant Infant;
+}
+
+.cover-transition-load {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--green);
+  z-index: 999999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  -webkit-clip-path: inset(0 0 0 0);
+          clip-path: inset(0 0 0 0);
+}
+.cover-transition-load h2 {
+  color: var(--cream);
+  font-weight: normal;
+  font-variant-ligatures: none;
+}
+.cover-transition-load h2 .char {
+  opacity: 0;
+  font-family: Cormorant Infant;
 }/*# sourceMappingURL=style.css.map */
