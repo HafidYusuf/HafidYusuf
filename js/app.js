@@ -1,5 +1,7 @@
 const indexAnimationEnter = (container) => {
 
+    $('nav').removeClass('invert-color')
+
     $(window).scrollTop(0);
     //SMOOTH SCROLL
     let lenis;
@@ -34,7 +36,7 @@ const indexAnimationEnter = (container) => {
     $('#burger-button').click(function () {
         $('.ham-menu').addClass('visible');
     });
-    $('.closeit').click(function () {
+    $('.closeit, .mobile-menu').click(function () {
         $('.ham-menu').removeClass('visible');
     });
 }
@@ -200,31 +202,46 @@ function aboutAnimation(container){
         });
     });
 
-    gsap.utils.toArray(".second-value").forEach((section, i) => {
-        const heightDiff = section.offsetHeight - section.parentElement.offsetHeight;
+    function myFunction(x) {
+        if (x.matches) {
+            gsap.utils.toArray(".second-value").forEach((section, i) => {
+                const heightDiff = section.offsetHeight - section.parentElement.offsetHeight;
 
-        gsap.fromTo(section,{y: -heightDiff - 150}, {
-            scrollTrigger: {
-                trigger: section.parentElement,
-                scrub: true
-            },
-            y: 60,
-            x: 0,
-            ease: "none"
-        });
-    });
-    gsap.utils.toArray(".third-value").forEach((section, i) => {
-        const heightDiff = section.offsetHeight - section.parentElement.offsetHeight;
+                gsap.fromTo(section,{y: -heightDiff - 150}, {
+                    scrollTrigger: {
+                        trigger: section.parentElement,
+                        scrub: true
+                    },
+                    y: 60,
+                    x: 0,
+                    ease: "none"
+                });
+            });
+            gsap.utils.toArray(".third-value").forEach((section, i) => {
+                const heightDiff = section.offsetHeight - section.parentElement.offsetHeight;
 
-        gsap.fromTo(section,{y: -heightDiff}, {
-            scrollTrigger: {
-                trigger: section.parentElement,
-                scrub: true
-            },
-            y: 100,
-            x: 0,
-            ease: "none"
-        });
+                gsap.fromTo(section,{y: -heightDiff}, {
+                    scrollTrigger: {
+                        trigger: section.parentElement,
+                        scrub: true
+                    },
+                    y: 100,
+                    x: 0,
+                    ease: "none"
+                });
+            });
+        }
+    }
+
+    // Create a MediaQueryList object
+    var x = window.matchMedia("(min-width: 1100px)")
+
+    // Call listener function at run time
+    myFunction(x);
+
+    // Attach listener function on state changes
+    x.addEventListener("change", function() {
+        myFunction(x);
     });
 
     /**
@@ -358,6 +375,13 @@ function homeAnimation(container){
             scrub: true
         }
     })
+    //NAV CHANGE COLOR
+    ScrollTrigger.create({
+        trigger: "#works",
+        start: "top top+=150px",
+        end: "bottom top+=150px",
+        toggleClass: {targets: "nav", className: "invert-color"}
+    });
     //ADD PARALLAX TO DETAIL CONTENT
     gsap.utils.toArray(".work-img img").forEach((section, i) => {
         const heightDiff = section.offsetHeight - section.parentElement.offsetHeight;
