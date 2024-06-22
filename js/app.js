@@ -290,8 +290,8 @@ const coverAnimationEnter = () => {
     .to($(".cover-transition h2 .char"), {y: -10, autoAlpha:0}, 1)
     .to($(".cover-transition"), {duration: 1.3, height: "0%",top: "0", ease: "Expo.easeInOut"})
     .from($(".hero"), {duration: 1.3, ease: "Expo.easeInOut", height: "250%"}, 1.5)
-    .from($(".about-intro, .resources-page"), {duration: 1.3, ease: "Expo.easeInOut", css: {"padding-top": "480px"}}, 1.5)
-    .to($(".invisible-div"), {duration: 1.3, ease: "Expo.easeInOut", css: {"margin-bottom": "0"}}, 2.5)
+    .from($(".about-intro, .resources-page, .title, .tagline"), {duration: 1.3, ease: "Expo.easeInOut", css: {"padding-top": "480px"}}, 1.5)
+    .to($(".invisible-div"), {duration: 1, ease: "power4.easeOut", css: {"margin-bottom": "0"}}, 3)
     .set($(".cover-transition"), {height: "0%", bottom: 0, top: "auto"})
 }
 /* End of Page Transition Cover */
@@ -308,8 +308,8 @@ const coverAnimationLoad = () => {
     .staggerTo($(".cover-transition-load h2 .char"), .3, { y: -10, autoAlpha:0, delay:1}, 0.01)
     .to($(".cover-transition-load"), {duration: 1.3, height: 0, ease: "Expo.easeInOut"})
     .from($(".hero"), {duration: 1.3, ease: "Expo.easeInOut", height: "250%"}, 1.5)
-    .from($(".about-intro, .resources-page"), {duration: 1.3, ease: "Expo.easeInOut", css: {"padding-top": "480px"}}, 1.5)
-    .to($(".invisible-div"), {duration: 1.3, ease: "Expo.easeInOut", css: {"margin-bottom": "0"}}, 2.1)
+    .from($(".about-intro, .resources-page, .title, .tagline"), {duration: 1.3, ease: "Expo.easeInOut", css: {"padding-top": "480px"}}, 1.5)
+    .to($(".invisible-div"), {duration: 1, ease: "power4.easeOut", css: {"margin-bottom": "0"}}, 3)
 }
 /* End of Preloader Animation */
 
@@ -341,6 +341,7 @@ function detailAnimation(container) {
         gsap.fromTo(section,{y: -heightDiff}, {
             scrollTrigger: {
                 trigger: section.parentElement,
+                start: "top bottom+=100",
                 scrub: true
             },
             y: 100,
