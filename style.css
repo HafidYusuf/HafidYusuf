@@ -167,6 +167,7 @@ body {
   opacity: 0.5;
   visibility: visible;
   z-index: 0;
+  pointer-events: none;
 }
 
 nav {
