@@ -402,17 +402,17 @@ function homeAnimation(container){
     const QQ = (s, o = document) => o.querySelectorAll(s);
 
     QQ('.magnetic-hover').forEach(el => el.addEventListener('mousemove', function(e) {
-    const pos = this.getBoundingClientRect();
-    const mx = e.clientX - 100 - pos.left; 
-    const my = e.clientY - 150 - pos.top;
-    
-    this.style.transform = 'translate('+ mx * 0.15 +'px, '+ my * 0.3 +'px) rotate(-20deg)';
-    this.children[0].style.transform = 'translate('+ mx * 0.025 +'px, '+ my * 0.075 +'px)';
+        const pos = this.getBoundingClientRect();
+        const mx = e.clientX - 100 - pos.left; 
+        const my = e.clientY - 150 - pos.top;
+        
+        this.style.transform = 'translate('+ mx * 0.15 +'px, '+ my * 0.3 +'px) rotate(-20deg)';
+        this.children[0].style.transform = 'translate('+ mx * 0.025 +'px, '+ my * 0.075 +'px)';
     }));
 
     QQ('.magnetic-hover').forEach(el => el.addEventListener('mouseleave', function() {
-    this.style.transform = 'translate3d(0px, 0px, 0px) rotate(-20deg)';
-    this.children[0].style.transform = 'translate3d(0px, 0px, 0px)';
+        this.style.transform = 'translate3d(0px, 0px, 0px) rotate(-20deg)';
+        this.children[0].style.transform = 'translate3d(0px, 0px, 0px)';
     }));
 }
 
